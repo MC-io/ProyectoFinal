@@ -14,41 +14,41 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nombre"/>
+        android:text="Tarea"/>
 
     <EditText
         android:id="@+id/edtNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese su nombre..."/>
+        android:hint="Que necesitas hacer?"/>
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Direccion"/>
+        android:text="Fecha limite"/>
     <EditText
         android:id="@+id/edtDireccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese su direccion ..."/>
+        android:hint="Ingrese la fecha-limite"/>
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Email"/>
+        android:text="Hora"/>
     <EditText
         android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese su email ..."/>
+        android:hint="Ingrese la hora limite"/>
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Telefono"/>
+        android:text="Prioridad"/>
     <EditText
         android:id="@+id/edtTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese su telefono ..."/>
+        android:hint="Indique el nivel de prioridad del 1 al 10..."/>
 </LinearLayout>
