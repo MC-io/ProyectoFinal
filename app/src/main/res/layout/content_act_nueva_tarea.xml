@@ -51,4 +51,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Indique el nivel de prioridad del 1 al 10..."/>
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripcion (Opcional)"/>
+    <EditText
+        android:id="@+id/edtDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Introduzca una breve descripcion de la tarea"/>
 </LinearLayout>
