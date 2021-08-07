@@ -1,76 +1,95 @@
 package com.example.moises.proyectofinal;
 
+import android.database.sqlite.SQLiteDatabase;
+import android.database.Cursor;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import com.example.moises.proyectofinal.BaseDatos.DatosOpenHelper;
+
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 
 import android.view.View;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+import androidx.appcompat.widget.Toolbar;
 
-import com.example.moises.proyectofinal.databinding.ActivityMainBinding;
+import android.content.Intent;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-import android.view.Menu;
-import android.view.MenuItem;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private ListView lstDatos;
+    private ArrayAdapter<String> adaptador;
+    private ArrayList<String> clientes;
 
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
+    private SQLiteDatabase conexion;
+    private DatosOpenHelper datosOpenHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        setSupportActionBar(binding.toolbar);
+        setSupportActionBar(toolbar);
 
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-
-        binding.fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent it = new Intent(MainActivity.this, ActNuevaTarea.class);
+                //startActivity(it);
+                startActivityForResult(it, 0);
             }
         });
+        actualizar();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    private void actualizar() {
+        lstDatos = (ListView) findViewById(R.id.lstDatos);
+        clientes = new ArrayList<String>();
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        try {
+            datosOpenHelper = new DatosOpenHelper(this);
+            conexion = datosOpenHelper.getWritableDatabase();
+            StringBuilder sql = new StringBuilder();
+            sql.append("SELECT * FROM CLIENTE");
+            String sNombre;
+            String sTelefono;
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            Cursor resultado = conexion.rawQuery(sql.toString(), null);
+
+            if (resultado.getCount() > 0) {
+                resultado.moveToFirst();
+                do {
+                    sNombre = resultado.getString(resultado.getColumnIndex("NOMBRE"));
+                    sTelefono = resultado.getString(resultado.getColumnIndex("TELEFONO"));
+                    clientes.add(sNombre + ": " + sTelefono);
+                }
+                while (resultado.moveToNext());
+            }
+
+            adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, clientes);
+            lstDatos.setAdapter(adaptador);
         }
-
-        return super.onOptionsItemSelected(item);
+        catch (Exception ex) {
+            AlertDialog.Builder dlg = new AlertDialog.Builder(this);
+            dlg.setTitle("Aviso");
+            dlg.setMessage(ex.getMessage());
+            dlg.setNeutralButton("OK", null);
+            dlg.show();
+        }
     }
 
     @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-        return NavigationUI.navigateUp(navController, appBarConfiguration)
-                || super.onSupportNavigateUp();
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        actualizar();
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }
