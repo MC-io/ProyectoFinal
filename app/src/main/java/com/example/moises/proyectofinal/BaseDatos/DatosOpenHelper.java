@@ -17,7 +17,7 @@ public class DatosOpenHelper extends SQLiteOpenHelper{
         sql.append("NOMBRE VARCHAR(250), ");
         sql.append("DIRECCION VARCHAR(250), ");
         sql.append("EMAIL VARCHAR(200), ");
-        sql.append("TELEFONO VARCHAR(20))");
+        sql.append("TELEFONO INT)");
         /*
         sql.append("CREATE TABLE IF NOT EXISTS TAREA (");
         sql.append("NOMBRE VARCHAR(250), ");

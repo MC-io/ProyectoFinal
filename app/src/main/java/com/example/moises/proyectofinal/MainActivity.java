@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             datosOpenHelper = new DatosOpenHelper(this);
             conexion = datosOpenHelper.getWritableDatabase();
             StringBuilder sql = new StringBuilder();
-            sql.append("SELECT * FROM CLIENTE");
+            sql.append("SELECT * FROM CLIENTE ORDER BY TELEFONO DESC");
             String sNombre;
             String sTelefono;
 
