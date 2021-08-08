@@ -16,7 +16,7 @@ public class DatosOpenHelper extends SQLiteOpenHelper{
         sql.append("CREATE TABLE IF NOT EXISTS TAREA (");
         sql.append("TAREA VARCHAR(100), ");
         sql.append("FECHA VARCHAR(50), ");
-        sql.append("IMPORTANCIA VARCHAR(20), ");
+        sql.append("IMPORTANCIA INT, ");
         sql.append("DESCRIPCION VARCHAR(360))");
 
         sqLiteDatabase.execSQL(sql.toString());

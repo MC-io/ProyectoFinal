@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             datosOpenHelper = new DatosOpenHelper(this);
             conexion = datosOpenHelper.getWritableDatabase();
             StringBuilder sql = new StringBuilder();
-            sql.append("SELECT * FROM TAREA");
+            sql.append("SELECT * FROM TAREA ORDER BY IMPORTANCE DESC, FECHA ASC");
             String sTarea;
             String sFecha;
 
