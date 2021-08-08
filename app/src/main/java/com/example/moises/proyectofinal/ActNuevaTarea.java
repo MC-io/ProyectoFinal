@@ -37,6 +37,7 @@ public class ActNuevaTarea extends AppCompatActivity implements View.OnClickList
 
         edtTarea = (EditText) findViewById(R.id.edtTarea);
         edtFecha = (EditText) findViewById(R.id.edtFecha);
+        edtFecha.setOnClickListener(this);
         edtImportancia = (EditText) findViewById(R.id.edtImportancia);
         edtDescripcion = (EditText) findViewById(R.id.edtDescripcion);
 
