@@ -17,7 +17,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.ProyectoFinal.PopupOverlay"
-            app:title="Nuevo Cliente"/>
+            app:title="Nueva Tarea"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_act_nueva_tarea" />

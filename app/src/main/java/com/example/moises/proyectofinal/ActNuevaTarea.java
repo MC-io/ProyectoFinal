@@ -15,10 +15,10 @@ import android.view.MenuItem;
 import android.widget.EditText;
 
 public class ActNuevaTarea extends AppCompatActivity {
-    private EditText edtNombre;
-    private EditText edtDireccion;
-    private EditText edtEmail;
-    private EditText edtTelefono;
+    private EditText edtTarea;
+    private EditText edtFecha;
+    private EditText edtImportancia;
+    private EditText edtDescripcion;
 
     private SQLiteDatabase conexion;
     private DatosOpenHelper datosOpenHelper;
@@ -30,10 +30,10 @@ public class ActNuevaTarea extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        edtNombre = (EditText) findViewById(R.id.edtNombre);
-        edtDireccion = (EditText) findViewById(R.id.edtDireccion);
-        edtEmail = (EditText) findViewById(R.id.edtEmail);
-        edtTelefono = (EditText) findViewById(R.id.edtTelefono);
+        edtTarea = (EditText) findViewById(R.id.edtTarea);
+        edtFecha = (EditText) findViewById(R.id.edtFecha);
+        edtImportancia = (EditText) findViewById(R.id.edtImportancia);
+        edtDescripcion = (EditText) findViewById(R.id.edtDescripcion);
 
     }
 
@@ -55,11 +55,11 @@ public class ActNuevaTarea extends AppCompatActivity {
                         datosOpenHelper = new DatosOpenHelper(this);
                         conexion = datosOpenHelper.getWritableDatabase();
                         StringBuilder sql = new StringBuilder();
-                        sql.append("INSERT INTO CLIENTE (NOMBRE, DIRECCION, EMAIL, TELEFONO) VALUES ('");
-                        sql.append(edtNombre.getText().toString().trim() + "', '");
-                        sql.append(edtDireccion.getText().toString().trim() + "', '");
-                        sql.append(edtEmail.getText().toString().trim() + "', '");
-                        sql.append(edtTelefono.getText().toString().trim() + "')");
+                        sql.append("INSERT INTO TAREA (TAREA, FECHA, IMPORTANCIA, DESCRIPCION) VALUES ('");
+                        sql.append(edtTarea.getText().toString().trim() + "', '");
+                        sql.append(edtFecha.getText().toString().trim() + "', '");
+                        sql.append(edtImportancia.getText().toString().trim() + "', '");
+                        sql.append(edtDescripcion.getText().toString().trim() + "')");
 
                         conexion.execSQL(sql.toString());
                         conexion.close();
@@ -76,7 +76,7 @@ public class ActNuevaTarea extends AppCompatActivity {
                 else {
                     AlertDialog.Builder dlg = new AlertDialog.Builder(this);
                     dlg.setTitle("Aviso");
-                    dlg.setMessage("Existen campos vacios");
+                    dlg.setMessage("Llene todos los campos");
                     dlg.setNeutralButton("OK", null);
                     dlg.show();
                 }
@@ -90,23 +90,23 @@ public class ActNuevaTarea extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+//Funcion que comprueba que este llenos los espacios y devuelve true si estan llenos
     private boolean bCamposCorrectos() {
         boolean res = true;
-        if (edtNombre.getText().toString().trim().isEmpty()) {
-            edtNombre.requestFocus();
+        if (edtTarea.getText().toString().trim().isEmpty()) {
+            edtTarea.requestFocus();
             res = false;
         }
-        if (edtDireccion.getText().toString().trim().isEmpty()) {
-            edtNombre.requestFocus();
+        if (edtFecha.getText().toString().trim().isEmpty()) {
+            edtTarea.requestFocus();
             res = false;
         }
-        if (edtEmail.getText().toString().trim().isEmpty()) {
-            edtNombre.requestFocus();
+        if (edtImportancia.getText().toString().trim().isEmpty()) {
+            edtTarea.requestFocus();
             res = false;
         }
-        if (edtTelefono.getText().toString().trim().isEmpty()) {
-            edtNombre.requestFocus();
+        if (edtDescripcion.getText().toString().trim().isEmpty()) {
+            edtTarea.requestFocus();
             res = false;
         }
         return res;
