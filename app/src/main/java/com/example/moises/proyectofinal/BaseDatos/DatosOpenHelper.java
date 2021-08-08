@@ -13,18 +13,12 @@ public class DatosOpenHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         StringBuilder sql = new StringBuilder();
-        sql.append("CREATE TABLE IF NOT EXISTS CLIENTE (");
-        sql.append("NOMBRE VARCHAR(250), ");
-        sql.append("DIRECCION VARCHAR(250), ");
-        sql.append("EMAIL VARCHAR(200), ");
-        sql.append("TELEFONO INT)");
-        /*
         sql.append("CREATE TABLE IF NOT EXISTS TAREA (");
-        sql.append("NOMBRE VARCHAR(250), ");
-        sql.append("DESCRIPCION VARCHAR(250), ");
-        sql.append("FECHA DATE, ");
-        sql.append("PRIORIDAD INT)");
-        */
+        sql.append("TAREA VARCHAR(100), ");
+        sql.append("FECHA VARCHAR(50), ");
+        sql.append("IMPORTANCIA VARCHAR(20), ");
+        sql.append("DESCRIPCION VARCHAR(360))");
+
         sqLiteDatabase.execSQL(sql.toString());
     }
 

@@ -17,52 +17,39 @@
         android:text="Tarea"/>
 
     <EditText
-        android:id="@+id/edtNombre"
+        android:id="@+id/edtTarea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Que necesitas hacer?"/>
+        android:hint="Ingrese tarea..."/>
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fecha limite"/>
+        android:text="Fecha"/>
     <EditText
-        android:id="@+id/edtDireccion"
+        android:id="@+id/edtFecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="date"
-        android:focusable="false"
-        android:clickable="true"
-        android:maxLines="1"
-        android:hint="Ingrese la fecha limite"/>
+        android:hint="Ingrese fecha ..."/>
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hora"/>
+        android:text="Importancia"/>
     <EditText
-        android:id="@+id/edtEmail"
+        android:id="@+id/edtImportancia"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese la hora limite"/>
+        android:hint="Eliga "/>
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Prioridad"/>
-    <EditText
-        android:id="@+id/edtTelefono"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Indique el nivel de prioridad del 1 al 10..."/>
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Descripcion (Opcional)"/>
+        android:text="Descripción"/>
     <EditText
         android:id="@+id/edtDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Introduzca una breve descripcion de la tarea"/>
+        android:hint="Ingrese su descripción ..."/>
 </LinearLayout>

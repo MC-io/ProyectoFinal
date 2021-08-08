@@ -25,7 +25,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private ListView lstDatos;
     private ArrayAdapter<String> adaptador;
-    private ArrayList<String> clientes;
+    private ArrayList<String> tareas;
 
     private SQLiteDatabase conexion;
     private DatosOpenHelper datosOpenHelper;
@@ -53,29 +53,29 @@ public class MainActivity extends AppCompatActivity {
 
     private void actualizar() {
         lstDatos = (ListView) findViewById(R.id.lstDatos);
-        clientes = new ArrayList<String>();
+        tareas = new ArrayList<String>();
 
         try {
             datosOpenHelper = new DatosOpenHelper(this);
             conexion = datosOpenHelper.getWritableDatabase();
             StringBuilder sql = new StringBuilder();
-            sql.append("SELECT * FROM CLIENTE ORDER BY TELEFONO DESC");
-            String sNombre;
-            String sTelefono;
+            sql.append("SELECT * FROM TAREA");
+            String sTarea;
+            String sFecha;
 
             Cursor resultado = conexion.rawQuery(sql.toString(), null);
 
             if (resultado.getCount() > 0) {
                 resultado.moveToFirst();
                 do {
-                    sNombre = resultado.getString(resultado.getColumnIndex("NOMBRE"));
-                    sTelefono = resultado.getString(resultado.getColumnIndex("TELEFONO"));
-                    clientes.add(sNombre + ": " + sTelefono);
+                    sTarea = resultado.getString(resultado.getColumnIndex("TAREA"));
+                    sFecha = resultado.getString(resultado.getColumnIndex("FECHA"));
+                    tareas.add(sFecha + ": " + sTarea);
                 }
                 while (resultado.moveToNext());
             }
 
-            adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, clientes);
+            adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tareas);
             lstDatos.setAdapter(adaptador);
         }
         catch (Exception ex) {
@@ -90,6 +90,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         actualizar();
-        super.onActivityResult(requestCode, resultCode, data);
+        //super.onActivityResult(requestCode, resultCode, data); //verificar
     }
 }
