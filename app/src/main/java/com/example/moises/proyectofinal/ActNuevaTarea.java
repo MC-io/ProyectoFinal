@@ -12,9 +12,14 @@ import android.view.MenuInflater;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 
-public class ActNuevaTarea extends AppCompatActivity {
+import androidx.fragment.app.DialogFragment;
+import android.app.DatePickerDialog;
+import android.widget.DatePicker;
+
+public class ActNuevaTarea extends AppCompatActivity implements View.OnClickListener {
     private EditText edtTarea;
     private EditText edtFecha;
     private EditText edtImportancia;
@@ -110,6 +115,28 @@ public class ActNuevaTarea extends AppCompatActivity {
             res = false;
         }
         return res;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.edtFecha:
+                showDatePickerDialog();
+                break;
+        }
+    }
+
+    private void showDatePickerDialog() {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // +1 because January is zero
+                final String selectedDate = day + "-" + (month+1) + "-" + year;
+                edtFecha.setText(selectedDate);
+            }
+        });
+
+        newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
 }
