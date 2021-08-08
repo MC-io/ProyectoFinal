@@ -132,7 +132,18 @@ public class ActNuevaTarea extends AppCompatActivity implements View.OnClickList
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 // +1 because January is zero
-                final String selectedDate = year + "-" + (month+1) + "-" + day;
+                String strYear = year + "";
+                String strMonth = month + "";
+                String strDay = day + "";
+                if (month < 9)
+                {
+                    strMonth = "0" + (month+1);
+                }
+                if (day < 10)
+                {
+                    strDay = "0" + day;
+                }
+                final String selectedDate = strYear + "-" + strMonth + "-" + strDay;
                 edtFecha.setText(selectedDate);
             }
         });
