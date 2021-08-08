@@ -30,7 +30,11 @@
         android:id="@+id/edtDireccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ingrese la fecha-limite"/>
+        android:inputType="date"
+        android:focusable="false"
+        android:clickable="true"
+        android:maxLines="1"
+        android:hint="Ingrese la fecha limite"/>
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"

@@ -7,14 +7,18 @@ import com.example.moises.proyectofinal.BaseDatos.DatosOpenHelper;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+
 import android.view.MenuInflater;
 
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.DatePicker;
 
-public class ActNuevaTarea extends AppCompatActivity {
+public class ActNuevaTarea extends AppCompatActivity implements View.OnClickListener {
     private EditText edtNombre;
     private EditText edtDireccion;
     private EditText edtEmail;
@@ -32,6 +36,7 @@ public class ActNuevaTarea extends AppCompatActivity {
 
         edtNombre = (EditText) findViewById(R.id.edtNombre);
         edtDireccion = (EditText) findViewById(R.id.edtDireccion);
+        edtDireccion.setOnClickListener(this);
         edtEmail = (EditText) findViewById(R.id.edtEmail);
         edtTelefono = (EditText) findViewById(R.id.edtTelefono);
 
@@ -110,6 +115,28 @@ public class ActNuevaTarea extends AppCompatActivity {
             res = false;
         }
         return res;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.edtDireccion:
+                showDatePickerDialog();
+                break;
+        }
+    }
+
+    private void showDatePickerDialog() {
+        DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                // +1 because January is zero
+                final String selectedDate = day + " / " + (month+1) + " / " + year;
+                edtDireccion.setText(selectedDate);
+            }
+        });
+
+        newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
 }
