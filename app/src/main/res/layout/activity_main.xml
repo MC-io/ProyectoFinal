@@ -17,7 +17,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/Theme.ProyectoFinal.PopupOverlay"
-            app:title="Proyecto Final"/>
+            app:title="Tareas"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
