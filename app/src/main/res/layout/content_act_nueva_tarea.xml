@@ -25,15 +25,15 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="date"
-        android:focusable="false"
-        android:clickable="true"
-        android:maxLines="1"
         android:text="Fecha"/>
     <EditText
         android:id="@+id/edtFecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="date"
+        android:focusable="false"
+        android:clickable="true"
+        android:maxLines="1"
         android:hint="Ingrese fecha ..."/>
     <TextView
         android:id="@+id/textView4"
