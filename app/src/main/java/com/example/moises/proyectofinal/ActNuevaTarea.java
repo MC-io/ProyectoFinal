@@ -18,6 +18,7 @@ import android.widget.EditText;
 import androidx.fragment.app.DialogFragment;
 import android.app.DatePickerDialog;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 public class ActNuevaTarea extends AppCompatActivity implements View.OnClickListener {
     private EditText edtTarea;
@@ -86,7 +87,7 @@ public class ActNuevaTarea extends AppCompatActivity implements View.OnClickList
                     dlg.setNeutralButton("OK", null);
                     dlg.show();
                 }
-                //Toast.makeText(this, "Boton Ok seleccionado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Nueva tarea anadida", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_cancelar:
