@@ -15,8 +15,7 @@
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="3mm"
+        android:textColor="@color/white"
         android:text="No hay ninguna tarea pendiente.\nPodriamos felicitarte o tambien recomendarte que hagas algo"/>
     <ListView
         android:id="@+id/lstDatos"
