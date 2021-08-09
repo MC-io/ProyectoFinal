@@ -8,12 +8,14 @@
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:background="@drawable/fondo_degradado">
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         android:text="No hay ninguna tarea pendiente.\nPodriamos felicitarte o tambien recomendarte que hagas algo"/>
     <ListView
         android:id="@+id/lstDatos"
