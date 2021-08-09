@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     private void actualizar() {
         lstDatos = (ListView) findViewById(R.id.lstDatos);
         tareas = new ArrayList<String>();
+        TextView txt = (TextView) findViewById(R.id.textView6);
 
         try {
             datosOpenHelper = new DatosOpenHelper(this);
@@ -73,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
                     tareas.add(sFecha + ": " + sTarea);
                 }
                 while (resultado.moveToNext());
+                txt.setVisibility(TextView.GONE);
+            }
+            else
+            {
+                txt.setVisibility(TextView.VISIBLE);
             }
 
             adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tareas);
