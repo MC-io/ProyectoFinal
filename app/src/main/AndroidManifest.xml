@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoFinal">
+        <activity android:name=".Description"></activity>
         <activity
             android:name=".ActNuevaTarea"
             android:label="@string/title_activity_act_nueva_tarea"
-            android:theme="@style/Theme.ProyectoFinal.NoActionBar"></activity>
+            android:theme="@style/Theme.ProyectoFinal.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_act_nueva_tarea"

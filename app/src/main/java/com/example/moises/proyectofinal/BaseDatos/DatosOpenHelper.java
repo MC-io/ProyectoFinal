@@ -1,6 +1,7 @@
 package com.example.moises.proyectofinal.BaseDatos;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -25,5 +26,11 @@ public class DatosOpenHelper extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int il) {
 
+    }
+    public Cursor viewData(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "Select * from TAREA";
+        Cursor cursor = db.rawQuery(query,null);
+        return cursor;
     }
 }

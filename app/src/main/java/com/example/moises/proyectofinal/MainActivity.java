@@ -29,7 +29,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     private ListView lstDatos;
     private ArrayAdapter<String> adaptador;
-    private ArrayList<String> tareas;
+    public ArrayList<String> tareas;
 
     private SQLiteDatabase conexion;
     private DatosOpenHelper datosOpenHelper;
@@ -51,9 +51,26 @@ public class MainActivity extends AppCompatActivity {
                 //startActivity(it);
                 startActivityForResult(it, 0);
             }
+
         });
+
         actualizar();
+
+        ListView listView = (ListView) findViewById(R.id.lstDatos);
+        listView.setAdapter(adaptador);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent it2 = new Intent(MainActivity.this, Description.class);
+                //startActivity(it);
+                startActivityForResult(it2, 0);
+            }
+
+
+
+        });
     }
+
 
     private void actualizar() {
         lstDatos = (ListView) findViewById(R.id.lstDatos);
@@ -95,6 +112,14 @@ public class MainActivity extends AppCompatActivity {
             dlg.setNeutralButton("OK", null);
             dlg.show();
         }
+        /*FloatingActionButton descrip = (FloatingActionButton) findViewById(R.id.lstDatos);
+        descrip.setOnClickListener(new AdapterView.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it2 = new Intent(MainActivity.this, ActNuevaTarea.class);
+                startActivityForResult(it2, 0);
+            }
+        });*/
     }
 
     @Override
