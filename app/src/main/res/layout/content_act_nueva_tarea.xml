@@ -62,6 +62,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="3mm"
+        android:inputType="number"
         android:hint="Eliga " />
 
     <TextView
