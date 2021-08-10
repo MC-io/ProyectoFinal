@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Description"
-    tools:layout_editor_absoluteY="81dp"
-    android:background="@drawable/fondo_degradado">
+    tools:layout_editor_absoluteY="81dp">
 
 
     <TextView
@@ -17,7 +16,7 @@
         android:layout_marginLeft="3dp"
         android:layout_marginBottom="567dp"
         android:rotationX="8"
-        android:text="Descripcion:"
+        android:text="DESCRIPCION:"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
