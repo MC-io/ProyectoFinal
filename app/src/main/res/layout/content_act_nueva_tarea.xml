@@ -9,7 +9,7 @@
     tools:context=".ActNuevaTarea"
     tools:showIn="@layout/act_nueva_tarea"
     tools:visibility="visible"
-    android:background="@drawable/fondo_degradado">>
+    android:background="@drawable/fondo_degradado">
 
     <TextView
         android:id="@+id/textView2"
@@ -24,7 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
-        android:fontFamily="cursive"
         android:textSize="3mm"
         android:hint="Ingrese tarea..." />
 
@@ -44,7 +43,6 @@
         android:focusable="false"
         android:textColor="@color/black"
         android:textSize="3mm"
-        android:fontFamily="cursive"
         android:hint="Ingrese fecha ..."
         android:inputType="date"
         android:maxLines="1" />
@@ -64,7 +62,6 @@
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="3mm"
-        android:fontFamily="cursive"
         android:hint="Eliga " />
 
     <TextView
@@ -79,7 +76,6 @@
         android:id="@+id/edtDescripcion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="cursive"
         android:hint="Ingrese su descripción ..."
         android:textColor="@color/black"
         android:textSize="3mm"/>
